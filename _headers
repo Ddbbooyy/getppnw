@@ -1,7 +1,16 @@
-# Cloudflare Pages headers
-# Block pages.dev subdomain from Google indexing
-# This ensures only getppnw.com gets indexed, not getppnw.pages.dev
+# Cloudflare Pages headers for getppnw.com
+# Security headers + pages.dev noindex
 
+# Global security headers for all paths
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://purepathnorthwest.com; connect-src 'self' https://api.stripe.com https://ppnw-api.dannyppnw.workers.dev; frame-src https://js.stripe.com https://hooks.stripe.com; object-src 'none'; base-uri 'self'
+
+# Block pages.dev subdomain from Google indexing
 https://getppnw.pages.dev/*
   X-Robots-Tag: noindex, nofollow
 
