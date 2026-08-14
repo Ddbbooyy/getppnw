@@ -1,0 +1,9 @@
+# Cloudflare Pages headers
+# Block pages.dev subdomain from Google indexing
+# This ensures only getppnw.com gets indexed, not getppnw.pages.dev
+
+https://getppnw.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://*.getppnw.pages.dev/*
+  X-Robots-Tag: noindex, nofollow

@@ -1,0 +1,23 @@
+# robots.txt for getppnw.com
+# Allow search engines to index the main site
+# Block pages.dev subdomain indexing (handled via X-Robots-Tag header on pages.dev)
+
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.wrangler/
+
+# Allow AI search bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://getppnw.com/sitemap.xml
