@@ -21,6 +21,15 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/science/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/how-it-works/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/faq/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
 # Block pages.dev subdomain from Google indexing
 https://getppnw.pages.dev/*
   X-Robots-Tag: noindex, nofollow
