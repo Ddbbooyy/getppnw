@@ -9,6 +9,40 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<!-- GA4 + Google Ads Conversion Tracking -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8G4KCRCGWY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-8G4KCRCGWY');
+gtag('config', 'AW-4845324397');
+
+// Extract Stripe session_id for deduplication (if present in URL)
+const urlParams = new URLSearchParams(window.location.search);
+const sessionId = urlParams.get('session_id') || ('ppnw_' + Date.now());
+
+// GA4 Purchase Event
+gtag('event', 'purchase', {
+  transaction_id: sessionId,
+  value: 12.99,
+  currency: 'USD',
+  items: [{
+    item_id: 'PPNW-10DAY-STARTER',
+    item_name: '10-Day Protocol Starter',
+    price: 12.99,
+    quantity: 1
+  }]
+});
+
+// Google Ads Purchase Conversion (imported via GA4 link — this fires the event Ads reads)
+gtag('event', 'conversion', {
+  send_to: 'AW-4845324397',
+  value: 12.99,
+  currency: 'USD',
+  transaction_id: sessionId
+});
+</script>
 <style>
 :root {
   --void: #0a0a0b;
